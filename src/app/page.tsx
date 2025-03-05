@@ -1,9 +1,9 @@
+import { Container } from "@mui/material";
+
 export default function Home() {
   return (
-    <div>
-      <main>
+    <Container maxWidth={false}>
         <p>تست</p>
-      </main>
-    </div>
+    </Container>
   );
 }

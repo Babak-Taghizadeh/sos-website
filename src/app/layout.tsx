@@ -5,6 +5,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/theme";
 import CssBaseline from "@mui/material/CssBaseline";
+import Header from "@/components/page-layout/header/Header";
 
 export const metadata: Metadata = {
   title: "SOS Website",
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -25,6 +26,7 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <Header />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
