@@ -1,13 +1,11 @@
 import ArticlesList from "@/components/articles/articlesList";
-import { ArticlesProps } from "@/types/types";
+import { fetchAllArticles } from "@/utils/utils";
 
 // WILL REVALIDATE REQUEST EVERY 3 DAYS (ISR)
 export const revalidate = 259200;
 
 const Home = async () => {
-  const articles: ArticlesProps[] = await fetch(
-    "http://localhost:4000/articles"
-  ).then((res) => res.json());
+  const articles = await fetchAllArticles();
   return <ArticlesList articles={articles} />;
 };
 
