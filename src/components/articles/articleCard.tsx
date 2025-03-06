@@ -1,5 +1,6 @@
 import { ArticlesProps } from "@/types/types";
 import {
+  Box,
   Button,
   Card,
   CardContent,
@@ -16,14 +17,15 @@ const ArticleCard = ({ article }: { article: ArticlesProps }) => {
     article.description.length > maxDescriptionLength
       ? article.description.slice(0, maxDescriptionLength) + "..."
       : article.description;
+
   return (
     <Card sx={{ borderRadius: 3, boxShadow: 2 }}>
       <CardMedia sx={{ height: 160, width: "100%", position: "relative" }}>
         <Image
           src={article.image}
           alt={article.title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }} 
         />
       </CardMedia>
       <CardContent>
@@ -41,13 +43,15 @@ const ArticleCard = ({ article }: { article: ArticlesProps }) => {
         <Typography variant="body2" color="textSecondary" mb={2}>
           {limitedDescription}
         </Typography>
-        <Button
-          variant="outlined"
-          component={Link}
-          href={`/articles/${article.id}`}
-        >
-          ادامه
-        </Button>
+        <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
+          <Button
+            variant="outlined"
+            component={Link}
+            href={`/articles/${article.id}`}
+          >
+            ادامه
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );

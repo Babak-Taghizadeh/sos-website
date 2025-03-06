@@ -34,9 +34,11 @@ const ArticlesList = ({ articles }: { articles: ArticlesProps[] }) => {
         ))}
       </Grid>
       {isMobile && visibleArticles < articles.length && (
-        <Button variant="outlined" sx={{ mt: 2 }} onClick={handleShowMore}>
-          بیشتر
-        </Button>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+          <Button variant="outlined" onClick={handleShowMore} sx={{ px: 4 }}>
+            بیشتر
+          </Button>
+        </Box>
       )}
     </Box>
   );
