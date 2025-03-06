@@ -16,7 +16,7 @@ const NotFoundArticle = () => {
       }}
     >
       <Typography variant="h5" textAlign="center" mt={5}>
-        مقاله پیدا نشد!
+        مقاله ای پیدا نشد!
       </Typography>
       <BackButton title="بازگشت به صفحه اصلی" />
     </Container>
