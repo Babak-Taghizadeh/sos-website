@@ -1,6 +1,6 @@
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import Image from "next/image";
-import Logo from "@/public/images/sos-logo.png";
+import Logo from "../../../../public/images/sos-logo.png";
 import MenuDrawer from "./menuDrawer";
 import MenuHeader from "./menuHeader";
 
