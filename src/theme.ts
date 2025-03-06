@@ -16,6 +16,9 @@ const theme = createTheme({
     secondary: {
       main: "#fff",
     },
+    info: {
+      main: "#808080",
+    },
   },
   typography: {
     fontFamily: iranSansXV.style.fontFamily,
