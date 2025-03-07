@@ -22,7 +22,7 @@ const ArticlesList = ({ articles }: { articles: ArticlesProps[] }) => {
       <Typography variant="h6" align="right" fontWeight="bold" mb={2}>
         مقاله‌ها
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container component="article" spacing={2}>
         {articles?.slice(0, articlesToShow).map((article) => (
           <Grid
             component="section"
