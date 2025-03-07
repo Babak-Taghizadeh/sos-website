@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Link from "next/link";
 
-const BackButton = ({ title }: { title: string }) => {
+const BackToHomeButton = ({ title }: { title: string }) => {
   return (
     <Button
       component={Link}
@@ -23,4 +23,4 @@ const BackButton = ({ title }: { title: string }) => {
   );
 };
 
-export default BackButton;
+export default BackToHomeButton;
