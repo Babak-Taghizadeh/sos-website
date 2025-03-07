@@ -23,7 +23,7 @@ const TodoList = ({ fetchedTodos }: { fetchedTodos: Todo[] }) => {
     }
   };
 
-  const handleEdit = useCallback((todo: Todo) => {
+  const handleEdit = useCallback((todo: Todo | null) => {
     setEditingTodo(todo);
   }, []);
 
@@ -42,6 +42,7 @@ const TodoList = ({ fetchedTodos }: { fetchedTodos: Todo[] }) => {
       <TodoForm
         todo={editingTodo ?? undefined}
         onSuccess={handleUpdateSuccess}
+        handleEdit={handleEdit}
       />
       <Grid container spacing={2}>
         <SearchInput search={search} setSearch={setSearch} />

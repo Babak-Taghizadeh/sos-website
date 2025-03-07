@@ -12,9 +12,10 @@ import AddUpdateButton from "./addUpdateButton";
 interface TodoFormProps {
   todo?: Todo;
   onSuccess: () => void;
+  handleEdit: (todo: Todo | null) => void;
 }
 
-const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
+const TodoForm = ({ todo, onSuccess, handleEdit }: TodoFormProps) => {
   const [title, setTitle] = useState<string>("");
   const [priority, setPriority] = useState<Priority>("Medium");
   const [dueDate, setDueDate] = useState<string>("");
@@ -76,7 +77,7 @@ const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
       <TitleInput title={title} setTitle={handleSetTitle} errorMsg={errorMsg} />
       <PrioritySelect priority={priority} setPriority={handleSetPriority} />
       <DueDateInput dueDate={dueDate} setDueDate={handleSetDueDate} />
-      <AddUpdateButton todo={todo} />
+      <AddUpdateButton todo={todo} handleEdit={handleEdit} />
     </Grid>
   );
 };
