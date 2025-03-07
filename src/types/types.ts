@@ -11,5 +11,4 @@ export interface Todo {
   title: string;
   priority: "High" | "Medium" | "Low";
   dueDate: string;
-  completed: boolean;
 }
