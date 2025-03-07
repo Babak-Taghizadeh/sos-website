@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useState, useCallback } from "react";
 import { addTodo, updateTodo } from "@/utils/todoActions";
-import { Todo } from "@/types/types";
+import { Priority, Todo } from "@/types/types";
 import Grid from "@mui/material/Grid2";
 import TitleInput from "./titleInput";
 import PrioritySelect from "./prioritySelect";
@@ -16,7 +16,7 @@ interface TodoFormProps {
 
 const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
   const [title, setTitle] = useState<string>("");
-  const [priority, setPriority] = useState<"High" | "Medium" | "Low">("Medium");
+  const [priority, setPriority] = useState<Priority>("Medium");
   const [dueDate, setDueDate] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -32,7 +32,6 @@ const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
     }
   }, [todo]);
 
-  // Memoize state setters
   const handleSetTitle = useCallback((value: string) => {
     setTitle(value);
   }, []);

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { Button } from "@mui/material";
 import { Todo } from "@/types/types";
 import Grid from "@mui/material/Grid2";

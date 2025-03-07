@@ -1,8 +1,7 @@
+import { Priority } from "@/types/types";
 import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { memo } from "react";
-
-type Priority = "High" | "Medium" | "Low";
 
 interface PrioritySelectProps {
   priority: Priority;
