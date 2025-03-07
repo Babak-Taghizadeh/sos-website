@@ -1,18 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {
-  Button,
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Typography,
-} from "@mui/material";
+import { memo, useEffect, useState, useCallback } from "react";
 import { addTodo, updateTodo } from "@/utils/todoActions";
 import { Todo } from "@/types/types";
 import Grid from "@mui/material/Grid2";
+import TitleInput from "./titleInput";
+import PrioritySelect from "./prioritySelect";
+import DueDateInput from "./dueDateInput";
+import AddUpdateButton from "./addUpdateButton";
 
 interface TodoFormProps {
   todo?: Todo;
@@ -37,6 +32,19 @@ const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
     }
   }, [todo]);
 
+  // Memoize state setters
+  const handleSetTitle = useCallback((value: string) => {
+    setTitle(value);
+  }, []);
+
+  const handleSetPriority = useCallback((value: "High" | "Medium" | "Low") => {
+    setPriority(value);
+  }, []);
+
+  const handleSetDueDate = useCallback((value: string) => {
+    setDueDate(value);
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title) {
@@ -47,7 +55,6 @@ const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
       title,
       priority,
       dueDate,
-      completed: todo?.completed ?? false,
     };
     try {
       if (todo) {
@@ -67,71 +74,12 @@ const TodoForm = ({ todo, onSuccess }: TodoFormProps) => {
 
   return (
     <Grid container component="form" onSubmit={handleSubmit} spacing={2}>
-      <Grid component="section" size={{ xs: 12, sm: 6, md: 4 }}>
-        <TextField
-          label="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        {errorMsg && !title && (
-          <Typography color="error" variant="body1">
-            {errorMsg}
-          </Typography>
-        )}
-      </Grid>
-      <Grid component="section" size={{ xs: 12, sm: 6, md: 4 }}>
-        <FormControl fullWidth margin="normal">
-          <InputLabel id="priority-label">Priority</InputLabel>
-          <Select
-            labelId="priority-label"
-            label="Priority"
-            value={priority}
-            onChange={(e) =>
-              setPriority(e.target.value as "High" | "Medium" | "Low")
-            }
-            MenuProps={{
-              PaperProps: {
-                sx: {
-                  direction: "ltr",
-                },
-              },
-            }}
-          >
-            <MenuItem value="High">High</MenuItem>
-            <MenuItem value="Medium">Medium</MenuItem>
-            <MenuItem value="Low">Low</MenuItem>
-          </Select>
-        </FormControl>
-      </Grid>
-      <Grid component="section" size={{ xs: 12, sm: 6, md: 4 }}>
-        <TextField
-          label="Due Date"
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-          fullWidth
-          margin="normal"
-          slotProps={{
-            inputLabel: {
-              shrink: true,
-            },
-          }}
-        />
-      </Grid>
-      <Grid size={12} sx={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          sx={{ mb: 2 }}
-        >
-          {todo ? "Update" : "Add"} Todo
-        </Button>
-      </Grid>
+      <TitleInput title={title} setTitle={handleSetTitle} errorMsg={errorMsg} />
+      <PrioritySelect priority={priority} setPriority={handleSetPriority} />
+      <DueDateInput dueDate={dueDate} setDueDate={handleSetDueDate} />
+      <AddUpdateButton todo={todo} />
     </Grid>
   );
 };
 
-export default TodoForm;
+export default memo(TodoForm);
