@@ -16,7 +16,9 @@ const Article = async ({ params }: { params: Promise<{ id: string }> }) => {
     article = await fetchArticleById(id);
   } catch (error) {
     console.error("Error fetching article:", error);
-    <NotFoundArticle message="مشکلی پیش آمده.لطفا مجحدا دوباره تلاش کنید" />;
+    return (
+      <NotFoundArticle message="مشکلی پیش آمده.لطفا مجحدا دوباره تلاش کنید" />
+    );
   }
 
   if (!article || Object.keys(article).length === 0) {
