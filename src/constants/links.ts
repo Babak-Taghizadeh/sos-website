@@ -5,3 +5,5 @@ export const NAV_LINKS = [
   { label: "شعبه های ما", href: "#", id: 4 },
   { label: "سوال های متداول", href: "#", id: 5 },
 ];
+
+export const API_URL = "http://localhost:4000";

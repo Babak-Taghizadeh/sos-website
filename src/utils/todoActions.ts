@@ -2,8 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { Todo } from "../types/types";
-
-const API_URL = "http://localhost:4000";
+import { API_URL } from "@/constants/links";
 
 export const addTodo = async (todo: Omit<Todo, "id">): Promise<Todo> => {
   const response = await fetch(`${API_URL}/todos`, {

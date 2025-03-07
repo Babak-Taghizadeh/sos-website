@@ -1,5 +1,5 @@
 "use client";
-import { NAV_LINKS } from "@/constants/headerLinks";
+import { NAV_LINKS } from "@/constants/links";
 import { Button, List, ListItem } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

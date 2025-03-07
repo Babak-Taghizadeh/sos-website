@@ -3,7 +3,7 @@ import { Box, Button, Drawer, IconButton, List, ListItem } from "@mui/material";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
-import { NAV_LINKS } from "@/constants/headerLinks";
+import { NAV_LINKS } from "@/constants/links";
 import { usePathname } from "next/navigation";
 
 const MenuDrawer = () => {
@@ -21,7 +21,7 @@ const MenuDrawer = () => {
       >
         <MenuIcon sx={{ color: "#1158A7" }} />
       </IconButton>
-      <Drawer anchor="right" open={isOpen} onClose={() => toggleDrawer(false)} >
+      <Drawer anchor="right" open={isOpen} onClose={() => toggleDrawer(false)}>
         <Box sx={{ width: 250 }} onClick={() => toggleDrawer(false)}>
           <List>
             {NAV_LINKS.map((item) => (
@@ -32,7 +32,9 @@ const MenuDrawer = () => {
                   borderBottom: "1px solid black",
                 }}
               >
-                <Button component={Link} href={item.href}>{item.label}</Button>
+                <Button component={Link} href={item.href}>
+                  {item.label}
+                </Button>
               </ListItem>
             ))}
           </List>

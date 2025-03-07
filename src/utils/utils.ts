@@ -1,6 +1,5 @@
+import { API_URL } from "@/constants/links";
 import { ArticlesProps, Todo } from "@/types/types";
-
-const API_URL = "http://localhost:4000";
 
 export const fetchAllArticles = async (): Promise<ArticlesProps[]> => {
   const response = await fetch(`${API_URL}/articles`);
