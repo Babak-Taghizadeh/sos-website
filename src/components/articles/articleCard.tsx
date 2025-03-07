@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const ArticleCard = ({ article }: { article: ArticlesProps }) => {
   const maxDescriptionLength = 100;
@@ -25,7 +24,7 @@ const ArticleCard = ({ article }: { article: ArticlesProps }) => {
           src={article.image}
           alt={article.title}
           fill
-          style={{ objectFit: "cover" }} 
+          style={{ objectFit: "cover" }}
         />
       </CardMedia>
       <CardContent>

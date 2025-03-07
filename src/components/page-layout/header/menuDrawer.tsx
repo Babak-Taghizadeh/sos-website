@@ -1,6 +1,6 @@
 "use client";
 import { Box, Button, Drawer, IconButton, List, ListItem } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import { NAV_LINKS } from "@/constants/headerLinks";

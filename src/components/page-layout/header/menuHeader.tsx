@@ -2,7 +2,6 @@
 import { NAV_LINKS } from "@/constants/headerLinks";
 import { Button, List, ListItem } from "@mui/material";
 import Link from "next/link";
-import React from "react";
 import { usePathname } from "next/navigation";
 
 const MenuHeader = () => {

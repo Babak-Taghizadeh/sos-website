@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useCallback, useState } from "react";
 import { Typography, Button, Box, useMediaQuery } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { ArticlesProps } from "@/types/types";
@@ -8,9 +8,9 @@ import ArticleCard from "./articleCard";
 const ArticlesList = ({ articles }: { articles: ArticlesProps[] }) => {
   const [visibleArticles, setVisibleArticles] = useState<number>(3);
 
-  const handleShowMore = () => {
+  const handleShowMore = useCallback(() => {
     setVisibleArticles((prev) => prev + 3);
-  };
+  }, []);
 
   const isMobile = useMediaQuery("(max-width: 600px)");
   const articlesToShow = isMobile

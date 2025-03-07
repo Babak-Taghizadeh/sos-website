@@ -1,4 +1,4 @@
-import TodoList from "@/components/todos/todoList";
+import TodoList from "@/components/todos/todoList/todoList";
 import { fetchTodos } from "@/utils/utils";
 import { Box, Typography } from "@mui/material";
 
