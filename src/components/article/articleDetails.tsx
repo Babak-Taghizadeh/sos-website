@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import BackButton from "./backButton";
+import BackToHomeButton from "./backToHomeButton";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import Image from "next/image";
 import { ArticlesProps } from "@/types/types";
@@ -16,7 +16,7 @@ const ArticleDetails = ({ article }: { article: ArticlesProps }) => {
         gap: 3,
       }}
     >
-      <BackButton title="بازگشت" />
+      <BackToHomeButton title="بازگشت" />
       <Typography variant="h4" fontWeight="bold" align="center">
         {article.title}
       </Typography>
