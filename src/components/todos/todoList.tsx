@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   TextField,
   Select,
@@ -30,13 +30,13 @@ const TodoList = ({ fetchedTodos }: { fetchedTodos: Todo[] }) => {
     }
   };
 
-  const handleEdit = (todo: Todo) => {
+  const handleEdit = useCallback((todo: Todo) => {
     setEditingTodo(todo);
-  };
+  }, []);
 
-  const handleUpdateSuccess = () => {
+  const handleUpdateSuccess = useCallback(() => {
     setEditingTodo(null);
-  };
+  }, []);
 
   const filteredTodos = fetchedTodos
     .filter((todo) => todo.title.toLowerCase().includes(search.toLowerCase()))
