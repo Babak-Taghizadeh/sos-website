@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import React from "react";
 import BackButton from "./backButton";
 
-const NotFoundArticle = () => {
+const NotFoundArticle = ({ message }: { message: string }) => {
   return (
     <Container
       sx={{
@@ -16,7 +16,7 @@ const NotFoundArticle = () => {
       }}
     >
       <Typography variant="h5" textAlign="center" mt={5}>
-        مقاله ای پیدا نشد!
+        {message}
       </Typography>
       <BackButton title="بازگشت به صفحه اصلی" />
     </Container>
