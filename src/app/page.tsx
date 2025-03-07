@@ -2,8 +2,8 @@ import NotFoundArticle from "@/components/article/notFoundArticle";
 import ArticlesList from "@/components/articles/articlesList";
 import { fetchAllArticles } from "@/utils/utils";
 
-// WILL REVALIDATE REQUEST EVERY 3 DAYS (ISR)
-export const revalidate = 259200;
+// WILL REVALIDATE REQUEST EVERYDAY (ISR)
+export const revalidate = 86400;
 
 const Home = async () => {
   let articles;
