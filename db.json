@@ -31,22 +31,22 @@
   ],
   "todos": [
     {
-      "id": 1,
-      "title": "Grocery",
-      "timeEstimation": "2 Days",
-      "priority": "High"
+      "title": "Learn Guitar",
+      "priority": "Medium",
+      "dueDate": "",
+      "id": 1
     },
     {
-      "id": 1,
-      "title": "Grocery",
-      "timeEstimation": "2 Days",
-      "priority": "High"
+      "title": "Buy Milk",
+      "priority": "Low",
+      "dueDate": "",
+      "id": 2
     },
     {
-      "id": 1,
-      "title": "Grocery",
-      "timeEstimation": "2 Days",
-      "priority": "High"
+      "title": "Meeting with colleagues",
+      "priority": "High",
+      "dueDate": "",
+      "id": 3
     }
   ]
 }
