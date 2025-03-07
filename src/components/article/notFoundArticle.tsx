@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
-import BackButton from "./backButton";
+import BackToHomeButton from "./backToHomeButton";
 
 const NotFoundArticle = ({ message }: { message: string }) => {
   return (
@@ -18,7 +18,7 @@ const NotFoundArticle = ({ message }: { message: string }) => {
       <Typography variant="h5" textAlign="center" mt={5}>
         {message}
       </Typography>
-      <BackButton title="بازگشت به صفحه اصلی" />
+      <BackToHomeButton title="بازگشت به صفحه اصلی" />
     </Container>
   );
 };
