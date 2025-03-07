@@ -12,3 +12,7 @@ export interface Todo {
   priority: "High" | "Medium" | "Low";
   dueDate: string;
 }
+
+export type Priority = "High" | "Medium" | "Low";
+
+export type PriorityMode = "All" | "High" | "Medium" | "Low";
