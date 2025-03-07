@@ -1,9 +1,15 @@
-import React from 'react'
+import TodoList from "@/components/todos/todoList";
+import { fetchTodos } from "@/utils/utils";
+import { Box, Typography } from "@mui/material";
 
-const TodoList = () => {
+export default async function Home() {
+  const fetchedTodos = await fetchTodos();
   return (
-    <div>TodoList</div>
-  )
+    <Box dir="ltr" sx={{ p: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Todo App
+      </Typography>
+      <TodoList fetchedTodos={fetchedTodos} />
+    </Box>
+  );
 }
-
-export default TodoList
