@@ -6,10 +6,19 @@ import { fetchAllArticles } from "@/utils/utils";
 export const revalidate = 259200;
 
 const Home = async () => {
-  const articles = await fetchAllArticles();
+  let articles;
+
+  try {
+    articles = await fetchAllArticles();
+  } catch (error) {
+    console.log("Error fetching article:", error);
+    return (
+      <NotFoundArticle message="مشکلی پیش آمده.لطفا مجحدا دوباره تلاش کنید" />
+    );
+  }
 
   if (!articles || articles.length === 0) {
-    return <NotFoundArticle />;
+    return <NotFoundArticle message="مقاله ای پیدا نشد!" />;
   }
 
   return <ArticlesList articles={articles} />;
