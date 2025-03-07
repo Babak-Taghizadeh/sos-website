@@ -1,12 +1,25 @@
 import NotFoundArticle from "@/components/article/notFoundArticle";
 import ArticleDetails from "@/components/article/articleDetails";
 import { fetchAllArticles, fetchArticleById } from "@/utils/utils";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const articles = await fetchAllArticles();
   return articles.map((article) => ({
     id: String(article.id),
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const data = await fetchArticleById(params.id);
+  return {
+    title: data.title,
+    description: data.description,
+  };
 }
 
 const Article = async ({ params }: { params: Promise<{ id: string }> }) => {

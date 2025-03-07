@@ -8,8 +8,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Header from "@/components/page-layout/header/Header";
 
 export const metadata: Metadata = {
-  title: "SOS Website",
-  description: "Task Project",
+  title: "SOS وبسایت",
+  description: "پروژه آزمایشی",
 };
 
 export default function RootLayout({
